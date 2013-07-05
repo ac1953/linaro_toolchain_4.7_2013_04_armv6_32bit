@@ -1,0 +1,8 @@
+Please note that Linaro compiler toolchain, by default:
+- uses unaligned memory access
+- marks as abortive the declaration of variables not *REALLY* used
+
+To avoid errors and malfunctions it's then necessary modify the makefiles in this way:
+
+- to add   -mno-unaligned-access   to KBUILD_CFLAGS
+- remove the    -Werror            in KBUILD_CFLAGS
